@@ -16,17 +16,21 @@ function Hero({pageInfo}: Props) {
 ],
 loop: true,
 delaySpeed: 2000,
+deleteSpeed: 35,
 
     });
   return (
-    <div className='h-screen flex flex-col space-y-8 items-center justify-center text-center object-cover'>
+    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
         
         <BackgroundCircles />
-        <img className='relative rounded-full h-32 w-32 mx-auto overflow-hidden' src={urlFor(pageInfo.heroImage).url()} alt=''/>
+        <img className="relative rounded-full h-32 w-32 mx-auto object-cover" src={urlFor(pageInfo.heroImage).url()} alt=''/>
         <div className='z-20'> 
-            <h2 className='text-sm uppercase text-gray-500 pb-2 tracking-[15px]'>{pageInfo.role}</h2>
+            <h2 className="tracking-[10px]
+        text-sm uppercase text-gray-500 pb-2 sm:tracking-[15px]">{pageInfo.role}</h2>
         
-        <h1 className='text-5xl lg:text-6xl font-semibold px-10'>
+        <h1 className="text-[22px] pb-12 h-8 px-2
+        sm:pb-8 sm:h-24 lg:h-32 2xl:h-1/3
+         sm:text-5xl lg:text-6xl font-semibold sm:px-10">
         <span className='mr-3'>{text}</span>
         <Cursor cursorColor='orange'/>
         </h1>

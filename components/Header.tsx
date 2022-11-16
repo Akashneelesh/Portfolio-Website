@@ -10,7 +10,7 @@ type Props = {
 
 export default function Header({ socials }: Props) {
   return (
-    <header className="sticky top-0 p-5 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center">
+    <header className="sticky top-0 p-3 sm:p-5 flex items-center justify-between max-w-7xl mx-auto xl:items-center z-10 ">
       <motion.div
         initial={{
           x: -500,
@@ -25,14 +25,23 @@ export default function Header({ socials }: Props) {
         transition={{
           duration: 1.5,
         }}
-        className="flex flex-row items-center"
+        className="flex flex-row items-center w-2/3 sm:w-fit"
       >
+        <Link href="#hero">
+          <img
+            className="sm:hidden h-9 w-9 rounded-full hover:grayscale-0 cursor-pointer filter contrast-125 "
+            src="https://i.ibb.co/svscfdV/logo-2.png"
+            alt=""
+          />
+        </Link>
         {socials.map((socials) => (
           <SocialIcon
           key={socials._id}
             url={socials.url}
+            network={socials.url.includes("wa.me") ? "whatsapp" : ""}
             fgColor="grey"
             bgColor="transparent"
+            target="_blank"
           />
         ))}
       </motion.div>
@@ -59,7 +68,7 @@ export default function Header({ socials }: Props) {
             fgColor="grey"
             bgColor="transparent"
           />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400">
+          <p className="hidden uppercase sm:inline-flex text-sm text-gray-400">
             Get in touch
           </p>
         </motion.div>

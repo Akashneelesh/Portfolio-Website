@@ -9,18 +9,24 @@ type Props = {
 
 function Skills({skills}: Props) {
   return (
-    <motion.div
-      className="flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen top-24 uppercase tracking-[20px] text-gray-500 text-2xl justify-center xl:space-y-0 mx-auto items-center"
+    <motion.div 
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1.5 }}
+    className="
+    max-w-xs
+    flex relative flex-col text-center  xl:flex-row sm:max-w-[2000px] xl:px-10 min-h-screen justify-center xl:space-y-0 mx-auto items-center"
     >
-      <h3 className="absolute top-0 uppercase tracking-[20px] text-gray-500 text-2xl">
+      <h3 className="pageHeading">
         Skills
       </h3>
 
-      <h3 className="absolute top-14 uppercase tracking-[3px] text-gray-500 text-sm">
+      <h3 className="absolute top-[18vh] sm:top-36 uppercase tracking-[3px] text-gray-500 text-sm">
         Hover onto the icons for skill proficiency
       </h3>
 
-      <div className="grid grid-cols-4 gap-4">
+      <div className="gap-2 mt-[13vh]
+      grid grid-cols-4 sm:gap-5 sm:mt-20 xl:scale-90 xl:translate-y-12">
         {skills.slice(0,skills.length/2).map(skill => (
           <Skill key={skill._id} skill={skill}/>
         ))}
